@@ -47,6 +47,10 @@ def analyze_sentiment(sentence: str) -> str:
     else:
         return "neutral"
 
+@app.get("/")
+def root():
+    return {"status": "ok"}
+
 # Step E: The actual API endpoint
 @app.post("/sentiment", response_model=SentimentResponse)
 def sentiment_analysis(request: SentimentRequest):
